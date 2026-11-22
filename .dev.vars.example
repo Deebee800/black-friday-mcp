@@ -1,0 +1,13 @@
+# Copy to .dev.vars and fill in. Never commit .dev.vars.
+# From Associates Central > Tools > Creators API (credential version must be 3.1 for the US).
+AMAZON_CLIENT_ID=
+AMAZON_CLIENT_SECRET=
+# Tracking ID used by the MCP server itself (e.g. bfmcp-server-20)
+AMAZON_PARTNER_TAG=
+
+
+# Random string protecting /admin/stats (generate with: openssl rand -hex 24)
+ADMIN_KEY=
+
+# Official MCP Registry HTTP-auth key (Ed25519 hex)
+MCP_REGISTRY_PRIVATE_KEY=

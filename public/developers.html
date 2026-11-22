@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Developers: Black Friday MCP endpoint, OAuth, tools, and limits</title>
+  <meta content="Remote MCP server over Streamable HTTP with OAuth 2.1. Four read-only tools with full input schemas, response shape, limits, and the rules the server follows." name="description">
+  <meta content="Developers: Black Friday MCP endpoint, OAuth, tools, and limits" property="og:title">
+  <meta content="Remote MCP server over Streamable HTTP with OAuth 2.1. Four read-only tools with full input schemas, response shape, limits, and the rules the server follows." property="og:description">
+  <meta content="https://blackfridaymcp.com/brand/mark-512.png" property="og:image">
+  <meta content="https://blackfridaymcp.com/brand/mark-512.png" name="twitter:image">
+  <meta content="Developers: Black Friday MCP endpoint, OAuth, tools, and limits" name="twitter:title">
+  <meta content="Remote MCP server over Streamable HTTP with OAuth 2.1. Four read-only tools with full input schemas, response shape, limits, and the rules the server follows." name="twitter:description">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://blackfridaymcp.com/developers">
+  <link rel="canonical" href="https://blackfridaymcp.com/developers">
+  <meta content="summary_large_image" name="twitter:card">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <link href="/css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="/css/webflow.css" rel="stylesheet" type="text/css">
+  <link href="/css/black-friday-mcp.webflow.css" rel="stylesheet" type="text/css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="/brand/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="/brand/favicon-64.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/brand/apple-touch-icon.png">
+</head>
+<body>
+  <div class="page">
+    <div class="site-header">
+      <div class="wrap bar">
+        <a href="/" class="brand w-inline-block"><img src="/images/logo-dark.png" loading="lazy" sizes="100vw" srcset="/images/logo-dark-p-500.png 500w, /images/logo-dark.png 576w" alt="Black Friday MCP" class="brand-logo"></a>
+        <div class="nav">
+          <a href="/guides" class="nav-link">Guides</a>
+          <a href="/developers" aria-current="page" class="nav-link w--current">Developers</a>
+          <a href="/privacy" class="nav-link">Privacy</a>
+          <a href="/disclosure" class="nav-link">Disclosure</a>
+        </div>
+        <a href="/guides" class="btn btn-sm header-cta">Get started</a>
+        <a href="#" class="menu-btn js-menu">Menu</a>
+      </div>
+    </div>
+    <div class="page-top">
+      <div class="wrap">
+        <div class="eyebrow"><span class="eyebrow-dot"></span><span>Developers</span></div>
+        <h1 class="page-title">Black Friday MCP for developers</h1>
+        <p class="section-sub-wide">A remote MCP server over Streamable HTTP with OAuth 2.1. No API key, nothing to install. Four read-only tools, US marketplace, prices in USD.</p>
+        <div class="urlbox urlbox-light">
+          <div class="url-text js-url">https://blackfridaymcp.com/mcp</div>
+          <a href="#" class="btn copy-btn js-copy">Copy</a>
+        </div>
+      </div>
+    </div>
+    <div class="section section-tight">
+      <div class="wrap">
+        <div class="prose prose-wide">
+          <h2 class="prose-h2">Endpoint and transport</h2>
+          <div class="code-block code-block-top">
+            <div class="code-line">POST https://blackfridaymcp.com/mcp</div>
+            <div class="code-line">MCP 2026-07-28, stateless; older stateless clients supported</div>
+            <div class="code-line">Auth: OAuth 2.1 bearer token, scope shop:read</div>
+          </div>
+          <p class="prose-p">Unauthenticated requests get a 401 with a WWW-Authenticate challenge, so any compliant client discovers the flow on its own. Works with Claude, ChatGPT, Antigravity, Grok, Cursor, Codex, Claude Code, and any MCP SDK.</p>
+          <h2 class="prose-h2">Authorization</h2>
+          <div class="prose-list">
+            <div class="prose-li">
+              <div class="dev-dot"></div>
+              <div class="prose-li-text">Dynamic client registration at <span class="cmd">/oauth/register</span>; client ID metadata documents accepted.</div>
+            </div>
+            <div class="prose-li">
+              <div class="dev-dot"></div>
+              <div class="prose-li-text">PKCE S256 required. Loopback redirect URIs with any port accepted.</div>
+            </div>
+            <div class="prose-li">
+              <div class="dev-dot"></div>
+              <div class="prose-li-text">Consent is one click and mints an anonymous install ID. No user accounts.</div>
+            </div>
+            <div class="prose-li">
+              <div class="dev-dot"></div>
+              <div class="prose-li-text">Access tokens last 30 days. Resource metadata at <span class="cmd">/.well-known/oauth-protected-resource/mcp</span>.</div>
+            </div>
+          </div>
+          <h2 class="prose-h2">Tools</h2>
+          <p class="prose-p">All four are read-only. The exact JSON Schema is returned by <span class="cmd">tools/list</span>.</p>
+          <div class="tool-card">
+            <div class="tool-name">search_deals</div>
+            <div class="tool-title">Live prices and discounts for a shopping question, in-stock items only.</div>
+            <div class="field">
+              <div class="field-name">query</div>
+              <div class="field-desc"><span class="field-type">string, required.</span> 2 to 200 characters. What the shopper wants, in plain words.</div>
+            </div>
+            <div class="field">
+              <div class="field-name">max_price</div>
+              <div class="field-desc"><span class="field-type">number.</span> Budget ceiling in US dollars, above 0 and at most 100000.</div>
+            </div>
+            <div class="field">
+              <div class="field-name">min_discount_percent</div>
+              <div class="field-desc"><span class="field-type">integer.</span> 1 to 99. Only items Amazon marks at least this percent off.</div>
+            </div>
+            <div class="field">
+              <div class="field-name">category</div>
+              <div class="field-desc"><span class="field-type">string.</span> A category id from get_trending_deals.</div>
+            </div>
+            <div class="field field-last">
+              <div class="field-name">prime_only</div>
+              <div class="field-desc"><span class="field-type">boolean.</span> Only Prime-eligible items.</div>
+            </div>
+          </div>
+          <div class="tool-card">
+            <div class="tool-name">check_deal</div>
+            <div class="tool-title">The price, the reference price, and a one-line verdict for one product.</div>
+            <div class="field field-last">
+              <div class="field-name">asin_or_url</div>
+              <div class="field-desc"><span class="field-type">string, required.</span> An amazon.com product URL or a 10-character ASIN.</div>
+            </div>
+          </div>
+          <div class="tool-card">
+            <div class="tool-name">get_trending_deals</div>
+            <div class="tool-title">Discounted, in-stock items in a category, ranked by how trustworthy the discount evidence is.</div>
+            <div class="field">
+              <div class="field-name">category</div>
+              <div class="field-desc"><span class="field-type">string.</span> One of: tvs, headphones, laptops, tablets, smart-home, robot-vacuums, kitchen, air-fryers, toys, gaming, beauty, tools, fitness, baby, fashion.</div>
+            </div>
+            <div class="field field-last">
+              <div class="field-name">max_price</div>
+              <div class="field-desc"><span class="field-type">number.</span> Budget ceiling in US dollars.</div>
+            </div>
+          </div>
+          <div class="tool-card">
+            <div class="tool-name">gift_ideas</div>
+            <div class="tool-title">One to three gift ideas turned into in-stock products under a per-gift budget.</div>
+            <div class="field">
+              <div class="field-name">budget</div>
+              <div class="field-desc"><span class="field-type">number, required.</span> Maximum price per gift, in US dollars.</div>
+            </div>
+            <div class="field">
+              <div class="field-name">ideas</div>
+              <div class="field-desc"><span class="field-type">array of strings, required.</span> 1 to 3 ideas, 2 to 100 characters each.</div>
+            </div>
+            <div class="field">
+              <div class="field-name">recipient</div>
+              <div class="field-desc"><span class="field-type">string.</span> Who it is for, e.g. &quot;my dad who likes hiking&quot;.</div>
+            </div>
+            <div class="field field-last">
+              <div class="field-name">occasion</div>
+              <div class="field-desc"><span class="field-type">string.</span> e.g. &quot;Christmas&quot; or &quot;birthday&quot;.</div>
+            </div>
+          </div>
+          <h2 class="prose-h2">Response shape</h2>
+          <div class="code-block code-block-top">
+            <div class="code-line">content[0].text: human-readable block, links as markdown</div>
+            <div class="code-line">structuredContent:</div>
+            <div class="code-line code-line-indent">products[]: asin, title, brand, url, image_url, availability, deal{badge, ends_at, access},</div>
+            <div class="code-line code-line-indent2">price{amount, currency, display, as_of, display_with_time},</div>
+            <div class="code-line code-line-indent2">savings{percent, amount, reference_type, reference_label, reference_price, evidence_note}</div>
+            <div class="code-line code-line-indent">notes[], hint, market, disclosure</div>
+          </div>
+          <p class="prose-p">Prices carry their fetch time inline. The disclosure block appears once per response. check_deal adds a one-line verdict. Links are Amazon&#x27;s own URLs, untouched.</p>
+          <h2 class="prose-h2">Example response</h2>
+          <p class="prose-p">structuredContent from a real search_deals call, trimmed to one product:</p>
+          <div class="code-block code-block-top">
+            <div class="code-line">{</div>
+            <div class="code-line code-line-indent">&quot;query&quot;: &quot;noise cancelling headphones&quot;,</div>
+            <div class="code-line code-line-indent">&quot;max_price&quot;: 300,</div>
+            <div class="code-line code-line-indent">&quot;count&quot;: 8,</div>
+            <div class="code-line code-line-indent">&quot;total_results&quot;: 306,</div>
+            <div class="code-line code-line-indent">&quot;products&quot;: [</div>
+            <div class="code-line code-line-indent2">{</div>
+            <div class="code-line code-line-indent3">&quot;asin&quot;: &quot;B0C8PR4W22&quot;,</div>
+            <div class="code-line code-line-indent3">&quot;title&quot;: &quot;Beats Studio Pro Premium Wireless Over-Ear Headphones…&quot;,</div>
+            <div class="code-line code-line-indent3">&quot;brand&quot;: &quot;Beats&quot;,</div>
+            <div class="code-line code-line-indent3">&quot;price&quot;: { &quot;amount&quot;: 169.95, &quot;currency&quot;: &quot;USD&quot;, &quot;display&quot;: &quot;$169.95&quot;, &quot;as_of&quot;: &quot;2026-09-18T19:08:48.066Z&quot;, &quot;display_with_time&quot;: &quot;$169.95 (as of Sep 18 3:08 PM EDT)&quot; },</div>
+            <div class="code-line code-line-indent3">&quot;savings&quot;: { &quot;percent&quot;: 51, &quot;amount&quot;: 180.04, &quot;reference_type&quot;: &quot;LIST_PRICE&quot;, &quot;reference_label&quot;: &quot;List Price:&quot;, &quot;reference_price&quot;: &quot;$349.99&quot;, &quot;evidence_note&quot;: &quot;weak evidence: list prices often sit above the usual selling price&quot; },</div>
+            <div class="code-line code-line-indent3">&quot;availability&quot;: &quot;IN_STOCK&quot;,</div>
+            <div class="code-line code-line-indent3">&quot;deal&quot;: { &quot;badge&quot;: &quot;Limited time deal&quot;, &quot;ends_at&quot;: &quot;2026-09-27T06:59:59Z&quot;, &quot;access&quot;: &quot;ALL&quot; },</div>
+            <div class="code-line code-line-indent3">&quot;image_url&quot;: &quot;https://m.media-amazon.com/images/I/41BH74ZyJpL._SL160_.jpg&quot;,</div>
+            <div class="code-line code-line-indent3">&quot;url&quot;: &quot;https://www.amazon.com/dp/B0C8PR4W22?tag=bfmcp-serv-20&amp;linkCode=osi&amp;th=1&amp;psc=1&quot;</div>
+            <div class="code-line code-line-indent2">}</div>
+            <div class="code-line code-line-indent">],</div>
+            <div class="code-line code-line-indent">&quot;hint&quot;: &quot;In your reply, give each product&#x27;s link exactly as shown above.&quot;,</div>
+            <div class="code-line code-line-indent">&quot;disclosure&quot;: &quot;Black Friday MCP is free to use; Amazon pays it a small commission when you buy through these links…&quot;,</div>
+            <div class="code-line code-line-indent">&quot;market&quot;: &quot;Amazon.com (US), USD&quot;</div>
+            <div class="code-line">}</div>
+          </div>
+          <h2 class="prose-h2">Limits</h2>
+          <div class="prose-list">
+            <div class="prose-li">
+              <div class="dev-dot"></div>
+              <div class="prose-li-text">Per connection: 150 Amazon lookups per day, 10 uncached lookups per minute, about 60 requests per minute burst.</div>
+            </div>
+            <div class="prose-li">
+              <div class="dev-dot"></div>
+              <div class="prose-li-text">Cached answers do not count. Prices are cached up to 1 hour, everything else up to 24 hours.</div>
+            </div>
+            <div class="prose-li">
+              <div class="dev-dot"></div>
+              <div class="prose-li-text">Responses aim for under 5 seconds, with a hard ceiling of about 9 seconds.</div>
+            </div>
+          </div>
+          <h2 class="prose-h2">Rules the server follows</h2>
+          <div class="prose-list">
+            <div class="prose-li">
+              <div class="dev-dot"></div>
+              <div class="prose-li-text">Amazon links pass through exactly as vended. No shorteners, no added parameters.</div>
+            </div>
+            <div class="prose-li">
+              <div class="dev-dot"></div>
+              <div class="prose-li-text">No scraping. Everything comes from Amazon&#x27;s Creators API.</div>
+            </div>
+            <div class="prose-li">
+              <div class="dev-dot"></div>
+              <div class="prose-li-text">No stored price history. Discount evidence comes from Amazon&#x27;s own reference price for each item.</div>
+            </div>
+            <div class="prose-li">
+              <div class="dev-dot"></div>
+              <div class="prose-li-text">US marketplace only, prices in USD.</div>
+            </div>
+          </div>
+          <h2 class="prose-h2">Try it from a terminal</h2>
+          <div class="code-block code-block-top">
+            <div class="code-line">curl -si -X POST https://blackfridaymcp.com/mcp</div>
+            <div class="code-line code-line-muted"># → 401 with WWW-Authenticate: Bearer resource_metadata=…</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="site-footer">
+      <div class="wrap">
+        <div class="foot-row">
+          <a href="/" class="brand w-inline-block"><img src="/images/logo-light.png" loading="lazy" sizes="(max-width: 738px) 100vw, 738px" srcset="/images/logo-light-p-500.png 500w, /images/logo-light.png 738w" alt="Black Friday MCP" class="foot-logo"></a>
+          <div class="foot-nav">
+            <a href="/guides" class="foot-link">Guides</a>
+            <a href="/developers" aria-current="page" class="foot-link w--current">Developers</a>
+            <a href="/privacy" class="foot-link">Privacy</a>
+            <a href="/disclosure" class="foot-link">Disclosure</a>
+          </div>
+        </div>
+        <p class="foot-p">Prices and links are for Amazon.com (US), in USD.</p>
+        <p class="foot-p">Black Friday MCP is free to use; Amazon pays it a small commission when you buy through its links, at no extra cost to you. As an Amazon Associate, Black Friday MCP earns from qualifying purchases.</p>
+        <div class="foot-by">
+          <div class="foot-by-text">by</div>
+          <a href="https://x.com/damirbilalov" class="foot-by-link">Damir Bilalov</a>
+          <div class="foot-by-text">· © 2026</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+(function(){
+  function all(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s));}
+  var tabs=all('.js-tabs .tab'),panels=all('.js-panels .panel');
+  tabs.forEach(function(t,i){t.addEventListener('click',function(e){e.preventDefault();tabs.forEach(function(x){x.classList.remove('is-active');});panels.forEach(function(p){p.classList.remove('is-active');});t.classList.add('is-active');if(panels[i]){panels[i].classList.add('is-active');}});});
+  all('.js-copy').forEach(function(b){b.addEventListener('click',function(e){e.preventDefault();var u=document.querySelector('.js-url');var txt=u?u.textContent.trim():'https://blackfridaymcp.com/mcp';var done=function(){var o=b.textContent;b.textContent='Copied';setTimeout(function(){b.textContent=o;},1500);};var fallback=function(){var ta=document.createElement('textarea');ta.value=txt;ta.setAttribute('readonly','');ta.style.position='absolute';ta.style.left='-9999px';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');done();}catch(err){}document.body.removeChild(ta);};if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(done,fallback);}else{fallback();}});});
+  all('.js-acc-head').forEach(function(h){h.addEventListener('click',function(e){e.preventDefault();var body=h.nextElementSibling,icon=h.querySelector('.acc-icon');if(!body){return;}var open=body.classList.toggle('is-open');if(icon){icon.textContent=open?'−':'+';}});});
+  all('.js-menu').forEach(function(m){m.addEventListener('click',function(e){e.preventDefault();var nav=document.querySelector('.nav');if(!nav){return;}var open=nav.classList.toggle('is-open');m.textContent=open?'Close':'Menu';});});
+})();
+</script>
+</body>
+</html>

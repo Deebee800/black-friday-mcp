@@ -1,0 +1,14 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "com.blackfridaymcp/amazon-deals",
+  "title": "Black Friday MCP",
+  "description": "Live Amazon.com (US) deals in your AI chat: search deals, check a price, trending, gift ideas.",
+  "version": "0.1.0",
+  "websiteUrl": "https://blackfridaymcp.com",
+  "icons": [
+    { "src": "https://blackfridaymcp.com/brand/mark-512.png", "mimeType": "image/png", "sizes": ["512x512"] }
+  ],
+  "remotes": [
+    { "type": "streamable-http", "url": "https://blackfridaymcp.com/mcp" }
+  ]
+}

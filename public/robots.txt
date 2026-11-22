@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /mcp
+Disallow: /authorize
+Disallow: /oauth/
+Disallow: /admin/
+
+Sitemap: https://blackfridaymcp.com/sitemap.xml

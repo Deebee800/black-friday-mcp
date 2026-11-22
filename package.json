@@ -1,0 +1,32 @@
+{
+  "name": "blackfridaymcp",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Black Friday MCP — remote MCP server for US shoppers, powered by the Amazon Creators API",
+  "scripts": {
+    "dev": "wrangler dev --local-protocol https --ip 127.0.0.1 --port 8787",
+    "deploy": "wrangler deploy",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "smoke": "node --env-file=.dev.vars scripts/smoke.mjs",
+    "prepare": "wrangler types",
+    "types": "wrangler types",
+    "test:e2e": "NODE_TLS_REJECT_UNAUTHORIZED=0 node scripts/local-oauth-test.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@cloudflare/workers-oauth-provider": "0.10.3",
+    "@modelcontextprotocol/server": "2.0.0",
+    "agents": "0.23.0",
+    "zod": "4.6.5"
+  },
+  "devDependencies": {
+    "@cloudflare/vitest-pool-workers": "0.22.0",
+    "typescript": "7.0.2",
+    "vitest": "4.1.11",
+    "wrangler": "4.134.0"
+  }
+}

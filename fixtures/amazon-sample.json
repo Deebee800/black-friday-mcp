@@ -1,0 +1,583 @@
+{
+  "searchItems": {
+    "searchResult": {
+      "items": [
+        {
+          "asin": "B0EXAMPL01",
+          "browseNodeInfo": {
+            "websiteSalesRank": {
+              "salesRank": 1000
+            }
+          },
+          "detailPageURL": "https://www.amazon.com/dp/B0EXAMPL01?tag=example-20&linkCode=osi&th=1&psc=1",
+          "images": {
+            "primary": {
+              "large": {
+                "height": 500,
+                "url": "https://m.media-amazon.com/images/I/example._SL500_.jpg",
+                "width": 499
+              },
+              "medium": {
+                "height": 160,
+                "url": "https://m.media-amazon.com/images/I/example._SL160_.jpg",
+                "width": 159
+              }
+            }
+          },
+          "itemInfo": {
+            "byLineInfo": {
+              "brand": {
+                "displayValue": "ExampleBrand",
+                "label": "Brand",
+                "locale": "en_US"
+              },
+              "manufacturer": {
+                "displayValue": "ExampleBrand",
+                "label": "Manufacturer",
+                "locale": "en_US"
+              }
+            },
+            "classifications": {
+              "binding": {
+                "displayValue": "Home",
+                "label": "Binding",
+                "locale": "en_US"
+              },
+              "productGroup": {
+                "displayValue": "Home",
+                "label": "ProductGroup",
+                "locale": "en_US"
+              }
+            },
+            "features": {
+              "displayValues": [
+                "Example feature text."
+              ],
+              "label": "Features",
+              "locale": "en_US"
+            },
+            "title": {
+              "displayValue": "Example Robot Vacuum and Mop",
+              "label": "Title",
+              "locale": "en_US"
+            }
+          },
+          "offersV2": {
+            "listings": [
+              {
+                "availability": {
+                  "message": "In Stock",
+                  "type": "IN_STOCK"
+                },
+                "dealDetails": {
+                  "accessType": "PRIME_EXCLUSIVE"
+                },
+                "isBuyBoxWinner": true,
+                "merchantInfo": {
+                  "id": "A0EXAMPLESELLER",
+                  "name": "Example Seller"
+                },
+                "price": {
+                  "money": {
+                    "amount": 79.99,
+                    "currency": "USD",
+                    "displayAmount": "$79.99"
+                  },
+                  "savingBasis": {
+                    "money": {
+                      "amount": 110.37,
+                      "currency": "USD",
+                      "displayAmount": "$110.37"
+                    },
+                    "savingBasisType": "LIST_PRICE",
+                    "savingBasisTypeLabel": "List Price:"
+                  },
+                  "savings": {
+                    "money": {
+                      "amount": 30.38,
+                      "currency": "USD",
+                      "displayAmount": "$30.38"
+                    },
+                    "percentage": 28
+                  }
+                },
+                "violatesMAP": false
+              },
+              {
+                "availability": {
+                  "maxOrderQuantity": 30,
+                  "message": "In Stock",
+                  "minOrderQuantity": 1,
+                  "type": "IN_STOCK"
+                },
+                "isBuyBoxWinner": false,
+                "merchantInfo": {
+                  "id": "A0EXAMPLESELLER",
+                  "name": "Example Seller"
+                },
+                "price": {
+                  "money": {
+                    "amount": 109.59,
+                    "currency": "USD",
+                    "displayAmount": "$109.59"
+                  }
+                },
+                "violatesMAP": false
+              }
+            ]
+          }
+        },
+        {
+          "asin": "B0EXAMPL02",
+          "browseNodeInfo": {
+            "websiteSalesRank": {
+              "salesRank": 2000
+            }
+          },
+          "detailPageURL": "https://www.amazon.com/dp/B0EXAMPL02?tag=example-20&linkCode=osi&th=1&psc=1",
+          "images": {
+            "primary": {
+              "large": {
+                "height": 500,
+                "url": "https://m.media-amazon.com/images/I/example._SL500_.jpg",
+                "width": 500
+              },
+              "medium": {
+                "height": 160,
+                "url": "https://m.media-amazon.com/images/I/example._SL160_.jpg",
+                "width": 160
+              }
+            }
+          },
+          "itemInfo": {
+            "byLineInfo": {
+              "brand": {
+                "displayValue": "ExampleBrand",
+                "label": "Brand",
+                "locale": "en_US"
+              },
+              "manufacturer": {
+                "displayValue": "ExampleBrand",
+                "label": "Manufacturer",
+                "locale": "en_US"
+              }
+            },
+            "classifications": {
+              "binding": {
+                "displayValue": "Kitchen",
+                "label": "Binding",
+                "locale": "en_US"
+              },
+              "productGroup": {
+                "displayValue": "Home",
+                "label": "ProductGroup",
+                "locale": "en_US"
+              }
+            },
+            "features": {
+              "displayValues": [
+                "Example feature text."
+              ],
+              "label": "Features",
+              "locale": "en_US"
+            },
+            "title": {
+              "displayValue": "Example Wireless Noise-Cancelling Headphones",
+              "label": "Title",
+              "locale": "en_US"
+            }
+          },
+          "offersV2": {
+            "listings": [
+              {
+                "availability": {
+                  "maxOrderQuantity": 27,
+                  "message": "In Stock",
+                  "minOrderQuantity": 1,
+                  "type": "IN_STOCK"
+                },
+                "isBuyBoxWinner": true,
+                "merchantInfo": {
+                  "id": "A0EXAMPLESELLER",
+                  "name": "Example Seller"
+                },
+                "price": {
+                  "money": {
+                    "amount": 119.99,
+                    "currency": "USD",
+                    "displayAmount": "$119.99"
+                  },
+                  "savingBasis": {
+                    "money": {
+                      "amount": 241.58,
+                      "currency": "USD",
+                      "displayAmount": "$241.58"
+                    },
+                    "savingBasisType": "LIST_PRICE",
+                    "savingBasisTypeLabel": "List Price:"
+                  },
+                  "savings": {
+                    "money": {
+                      "amount": 121.59,
+                      "currency": "USD",
+                      "displayAmount": "$121.59"
+                    },
+                    "percentage": 50
+                  }
+                },
+                "violatesMAP": false
+              }
+            ]
+          },
+          "parentASIN": "B0EXAMPL03"
+        },
+        {
+          "asin": "B0EXAMPL04",
+          "browseNodeInfo": {
+            "websiteSalesRank": {
+              "salesRank": 3000
+            }
+          },
+          "detailPageURL": "https://www.amazon.com/dp/B0EXAMPL04?tag=example-20&linkCode=osi&th=1&psc=1",
+          "images": {
+            "primary": {
+              "large": {
+                "height": 500,
+                "url": "https://m.media-amazon.com/images/I/example._SL500_.jpg",
+                "width": 500
+              },
+              "medium": {
+                "height": 160,
+                "url": "https://m.media-amazon.com/images/I/example._SL160_.jpg",
+                "width": 160
+              }
+            }
+          },
+          "itemInfo": {
+            "byLineInfo": {
+              "brand": {
+                "displayValue": "ExampleBrand",
+                "label": "Brand",
+                "locale": "en_US"
+              },
+              "manufacturer": {
+                "displayValue": "ExampleBrand",
+                "label": "Manufacturer",
+                "locale": "en_US"
+              }
+            },
+            "classifications": {
+              "productGroup": {
+                "displayValue": "Home",
+                "label": "ProductGroup",
+                "locale": "en_US"
+              }
+            },
+            "features": {
+              "displayValues": [
+                "Example feature text."
+              ],
+              "label": "Features",
+              "locale": "en_US"
+            },
+            "title": {
+              "displayValue": "Example 5-Quart Air Fryer",
+              "label": "Title",
+              "locale": "en_US"
+            }
+          },
+          "offersV2": {
+            "listings": [
+              {
+                "availability": {
+                  "maxOrderQuantity": 30,
+                  "message": "In Stock",
+                  "minOrderQuantity": 1,
+                  "type": "IN_STOCK"
+                },
+                "dealDetails": {
+                  "accessType": "ALL",
+                  "badge": "Limited time deal",
+                  "endTime": "2026-09-25T06:55:00Z",
+                  "startTime": "2026-09-15T08:05:00Z"
+                },
+                "isBuyBoxWinner": true,
+                "merchantInfo": {
+                  "id": "A0EXAMPLESELLER",
+                  "name": "Example Seller"
+                },
+                "price": {
+                  "money": {
+                    "amount": 59.99,
+                    "currency": "USD",
+                    "displayAmount": "$59.99"
+                  },
+                  "savingBasis": {
+                    "money": {
+                      "amount": 211.41,
+                      "currency": "USD",
+                      "displayAmount": "$211.41"
+                    },
+                    "savingBasisType": "LIST_PRICE",
+                    "savingBasisTypeLabel": "List Price:"
+                  },
+                  "savings": {
+                    "money": {
+                      "amount": 151.42,
+                      "currency": "USD",
+                      "displayAmount": "$151.42"
+                    },
+                    "percentage": 72
+                  }
+                },
+                "violatesMAP": false
+              }
+            ]
+          },
+          "parentASIN": "B0EXAMPL05"
+        }
+      ],
+      "totalResultCount": 306
+    }
+  },
+  "getItems": {
+    "itemsResult": {
+      "items": [
+        {
+          "asin": "B0EXAMPL06",
+          "browseNodeInfo": {
+            "websiteSalesRank": {
+              "salesRank": 4000
+            }
+          },
+          "detailPageURL": "https://www.amazon.com/dp/B0EXAMPL06?tag=example-20&linkCode=ogi&th=1&psc=1",
+          "images": {
+            "primary": {
+              "large": {
+                "height": 500,
+                "url": "https://m.media-amazon.com/images/I/example._SL500_.jpg",
+                "width": 500
+              },
+              "medium": {
+                "height": 160,
+                "url": "https://m.media-amazon.com/images/I/example._SL160_.jpg",
+                "width": 160
+              }
+            }
+          },
+          "itemInfo": {
+            "byLineInfo": {
+              "brand": {
+                "displayValue": "ExampleBrand",
+                "label": "Brand",
+                "locale": "en_US"
+              },
+              "manufacturer": {
+                "displayValue": "ExampleBrand",
+                "label": "Manufacturer",
+                "locale": "en_US"
+              }
+            },
+            "classifications": {
+              "binding": {
+                "displayValue": "Personal Computers",
+                "label": "Binding",
+                "locale": "en_US"
+              },
+              "productGroup": {
+                "displayValue": "Personal Computer",
+                "label": "ProductGroup",
+                "locale": "en_US"
+              }
+            },
+            "features": {
+              "displayValues": [
+                "Example feature text."
+              ],
+              "label": "Features",
+              "locale": "en_US"
+            },
+            "title": {
+              "displayValue": "Example 27-Inch 4K Monitor",
+              "label": "Title",
+              "locale": "en_US"
+            }
+          },
+          "offersV2": {
+            "listings": [
+              {
+                "availability": {
+                  "message": "Currently unavailable.",
+                  "type": "OUT_OF_STOCK"
+                },
+                "isBuyBoxWinner": true,
+                "violatesMAP": false
+              }
+            ]
+          },
+          "parentASIN": "B0EXAMPL07"
+        },
+        {
+          "asin": "B0EXAMPL08",
+          "browseNodeInfo": {
+            "websiteSalesRank": {
+              "salesRank": 5000
+            }
+          },
+          "detailPageURL": "https://www.amazon.com/dp/B0EXAMPL08?tag=example-20&linkCode=ogi&th=1&psc=1",
+          "images": {
+            "primary": {
+              "large": {
+                "height": 500,
+                "url": "https://m.media-amazon.com/images/I/example._SL500_.jpg",
+                "width": 313
+              },
+              "medium": {
+                "height": 160,
+                "url": "https://m.media-amazon.com/images/I/example._SL160_.jpg",
+                "width": 100
+              }
+            }
+          },
+          "itemInfo": {
+            "byLineInfo": {
+              "brand": {
+                "displayValue": "ExampleBrand",
+                "label": "Brand",
+                "locale": "en_US"
+              },
+              "manufacturer": {
+                "displayValue": "ExampleBrand",
+                "label": "Manufacturer",
+                "locale": "en_US"
+              }
+            },
+            "classifications": {
+              "binding": {
+                "displayValue": "Electronics",
+                "label": "Binding",
+                "locale": "en_US"
+              },
+              "productGroup": {
+                "displayValue": "Digital Products 3",
+                "label": "ProductGroup",
+                "locale": "en_US"
+              }
+            },
+            "features": {
+              "displayValues": [
+                "Example feature text."
+              ],
+              "label": "Features",
+              "locale": "en_US"
+            },
+            "title": {
+              "displayValue": "Example Mechanical Keyboard",
+              "label": "Title",
+              "locale": "en_US"
+            }
+          },
+          "offersV2": {
+            "listings": [
+              {
+                "availability": {
+                  "maxOrderQuantity": 1,
+                  "message": "In Stock",
+                  "minOrderQuantity": 1,
+                  "type": "IN_STOCK"
+                },
+                "isBuyBoxWinner": true,
+                "merchantInfo": {
+                  "id": "A0EXAMPLESELLER",
+                  "name": "Example Seller"
+                },
+                "price": {
+                  "money": {
+                    "amount": 89.99,
+                    "currency": "USD",
+                    "displayAmount": "$89.99"
+                  }
+                },
+                "violatesMAP": false
+              }
+            ]
+          },
+          "parentASIN": "B0EXAMPL09"
+        },
+        {
+          "asin": "B0EXAMPL10",
+          "browseNodeInfo": {
+            "websiteSalesRank": {
+              "salesRank": 6000
+            }
+          },
+          "detailPageURL": "https://www.amazon.com/dp/B0EXAMPL10?tag=example-20&linkCode=ogi&th=1&psc=1",
+          "images": {
+            "primary": {
+              "large": {
+                "height": 500,
+                "url": "https://m.media-amazon.com/images/I/example._SL500_.jpg",
+                "width": 500
+              },
+              "medium": {
+                "height": 160,
+                "url": "https://m.media-amazon.com/images/I/example._SL160_.jpg",
+                "width": 160
+              }
+            }
+          },
+          "itemInfo": {
+            "byLineInfo": {
+              "brand": {
+                "displayValue": "ExampleBrand",
+                "label": "Brand",
+                "locale": "en_US"
+              },
+              "manufacturer": {
+                "displayValue": "ExampleBrand",
+                "label": "Manufacturer",
+                "locale": "en_US"
+              }
+            },
+            "classifications": {
+              "binding": {
+                "displayValue": "Personal Computers",
+                "label": "Binding",
+                "locale": "en_US"
+              },
+              "productGroup": {
+                "displayValue": "Personal Computer",
+                "label": "ProductGroup",
+                "locale": "en_US"
+              }
+            },
+            "features": {
+              "displayValues": [
+                "Example feature text."
+              ],
+              "label": "Features",
+              "locale": "en_US"
+            },
+            "title": {
+              "displayValue": "Example Smart Plug, 4-Pack",
+              "label": "Title",
+              "locale": "en_US"
+            }
+          },
+          "offersV2": {
+            "listings": [
+              {
+                "availability": {
+                  "message": "Currently unavailable.",
+                  "type": "OUT_OF_STOCK"
+                },
+                "isBuyBoxWinner": true,
+                "violatesMAP": false
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
