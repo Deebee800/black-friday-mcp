@@ -11,7 +11,7 @@
     "directory": "./public",
     "binding": "ASSETS",
     "not_found_handling": "404-page",
-    "run_worker_first": ["/mcp*", "/.well-known/*", "/authorize*", "/oauth/*", "/healthz", "/admin/*"]
+    "run_worker_first": ["/mcp*", "/.well-known/*", "/authorize*", "/oauth/*", "/healthz", "/admin/*", "/media/*"]
   },
   "kv_namespaces": [
     { "binding": "OAUTH_KV", "id": "03c1f3bf12ef4e1e9ead449cc937372e" },

@@ -1590,3 +1590,58 @@
 .nowrap {
   white-space: nowrap;
 }
+
+/* ---- Demo video ---- */
+.panel-media {
+  display: flex;
+  align-items: flex-start;
+  gap: 28px;
+}
+
+.panel-media > .steps {
+  flex: 1;
+  min-width: 0;
+}
+
+.demo-video {
+  flex: 0 0 210px;
+  margin: 0;
+}
+
+.demo-video video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 9 / 16;
+  background-color: #f6f6f3;
+  border: 1px solid #dedfd8;
+  border-radius: 18px;
+}
+
+.demo-video figcaption {
+  color: #5f625c;
+  margin-top: 8px;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.panel .demo-video video {
+  border-color: #2a2a2c;
+}
+
+.panel .demo-video figcaption {
+  color: #9a9c94;
+}
+
+@media screen and (max-width: 767px) {
+  .panel-media {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .demo-video {
+    flex-basis: auto;
+    width: 100%;
+    max-width: 240px;
+  }
+}

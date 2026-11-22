@@ -235,6 +235,7 @@
           </div>
           <div class="panel">
             <h3 class="panel-title">Muse (Meta)</h3>
+            <div class="panel-media">
             <div class="steps">
               <div class="step-row">
                 <div class="step-num">1</div>
@@ -245,16 +246,23 @@
               </div>
               <div class="step-row">
                 <div class="step-num">2</div>
-                <div class="step-text">Confirm the connector card, then the notice that Meta does not review custom connectors.</div>
+                <div class="step-text">Tap Add on the connector card, then Add on the notice that Meta does not review custom connectors.</div>
               </div>
               <div class="step-row">
                 <div class="step-num">3</div>
-                <div class="step-text">On iPhone, confirm once more. Then click Connect on the page that opens.</div>
+                <div class="step-text">On iPhone, tap Continue. Then tap Connect on the page that opens.</div>
               </div>
               <div class="step-row">
                 <div class="step-num">4</div>
                 <div class="step-text">Ask: &quot;Best noise-cancelling headphones under $300?&quot;</div>
               </div>
+            </div>
+            <figure class="demo-video">
+              <video muted loop playsinline preload="none" poster="/media/muse-setup.jpg" width="540" height="960" data-autoplay aria-label="Screen recording: Muse on iPhone connects to Black Friday MCP">
+                <source src="/media/muse-setup.mp4" type="video/mp4">
+              </video>
+              <figcaption>Real recording on iPhone, Nov 22, 2026.</figcaption>
+            </figure>
             </div>
             <p class="fine">Use the Muse app or muse.ai. The Meta AI app has no custom connectors. To remove it, open Settings → Connectors.</p>
           </div>
@@ -615,6 +623,16 @@
   if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){return;}
   c.classList.add('is-anim');
   [350,1000,1700,2800,3100,3350].forEach(function(t,i){setTimeout(function(){c.classList.add(steps[i]);},t);});
+})();
+</script>
+<script>
+(function(){
+  var vs=Array.prototype.slice.call(document.querySelectorAll('video[data-autoplay]'));if(!vs.length){return;}
+  var still=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  vs.forEach(function(v){
+    if(still||!('IntersectionObserver' in window)){v.controls=true;return;}
+    new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var p=v.play();if(p&&p.catch){p.catch(function(){v.controls=true;});}}else{v.pause();}});},{threshold:0.4}).observe(v);
+  });
 })();
 </script>
 </body>

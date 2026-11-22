@@ -231,6 +231,7 @@
           <div class="acc-item">
             <a href="#" class="acc-head js-acc-head"><span>Muse (Meta)</span><span class="acc-icon">+</span></a>
             <div class="acc-body">
+              <div class="panel-media">
               <div class="steps">
                 <div class="step-row">
                   <div class="step-num">1</div>
@@ -245,7 +246,7 @@
                 </div>
                 <div class="step-row">
                   <div class="step-num">3</div>
-                  <div class="step-text">Muse shows a card to add the connector. Add it, then confirm again on the notice that Meta does not review custom connectors. On iPhone, confirm once more.</div>
+                  <div class="step-text">If Muse asks to share information with blackfridaymcp.com, allow it. Tap Add on the connector card, then Add again on the notice that Meta does not review custom connectors. On iPhone, tap Continue.</div>
                 </div>
                 <div class="step-row">
                   <div class="step-num">4</div>
@@ -255,6 +256,13 @@
                   <div class="step-num">5</div>
                   <div class="step-text">Ask: &quot;Black Friday deals on air fryers under $100?&quot;</div>
                 </div>
+              </div>
+              <figure class="demo-video">
+                <video muted loop playsinline preload="none" poster="/media/muse-setup.jpg" width="540" height="960" data-autoplay aria-label="Screen recording: Muse on iPhone connects to Black Friday MCP">
+                  <source src="/media/muse-setup.mp4" type="video/mp4">
+                </video>
+                <figcaption>Real recording on iPhone, Nov 22, 2026. A short request also worked: &quot;Can you connect to blackfridaymcp.com/mcp?&quot;</figcaption>
+              </figure>
               </div>
               <div class="tip">Muse works in the US, Canada, Japan, Singapore and Australia. The Meta AI app can&#x27;t add custom connectors.</div>
             </div>
@@ -371,6 +379,16 @@
   all('.js-copy').forEach(function(b){b.addEventListener('click',function(e){e.preventDefault();var u=document.querySelector('.js-url');var txt=u?u.textContent.trim():'https://blackfridaymcp.com/mcp';var done=function(){var o=b.textContent;b.textContent='Copied';setTimeout(function(){b.textContent=o;},1500);};var fallback=function(){var ta=document.createElement('textarea');ta.value=txt;ta.setAttribute('readonly','');ta.style.position='absolute';ta.style.left='-9999px';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');done();}catch(err){}document.body.removeChild(ta);};if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(done,fallback);}else{fallback();}});});
   all('.js-acc-head').forEach(function(h){h.addEventListener('click',function(e){e.preventDefault();var body=h.nextElementSibling,icon=h.querySelector('.acc-icon');if(!body){return;}var open=body.classList.toggle('is-open');if(icon){icon.textContent=open?'−':'+';}});});
   all('.js-menu').forEach(function(m){m.addEventListener('click',function(e){e.preventDefault();var nav=document.querySelector('.nav');if(!nav){return;}var open=nav.classList.toggle('is-open');m.textContent=open?'Close':'Menu';});});
+})();
+</script>
+<script>
+(function(){
+  var vs=Array.prototype.slice.call(document.querySelectorAll('video[data-autoplay]'));if(!vs.length){return;}
+  var still=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  vs.forEach(function(v){
+    if(still||!('IntersectionObserver' in window)){v.controls=true;return;}
+    new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var p=v.play();if(p&&p.catch){p.catch(function(){v.controls=true;});}}else{v.pause();}});},{threshold:0.4}).observe(v);
+  });
 })();
 </script>
 </body>

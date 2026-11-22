@@ -2,6 +2,7 @@ import { OAuthProvider } from "@cloudflare/workers-oauth-provider";
 import { McpEntrypoint } from "./mcp/entry";
 import { consentHandler } from "./oauth/consent";
 import { gateStub } from "./mcp/lookup";
+import { serveMedia } from "./media";
 export { Gate } from "./gate";
 
 const SCOPES = ["shop:read"];
@@ -47,6 +48,7 @@ export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
     if (url.pathname === "/healthz") return new Response("ok");
+    if (url.pathname.startsWith("/media/")) return serveMedia(request, env);
     if (url.pathname === "/.well-known/mcp-registry-auth") return new Response(MCP_REGISTRY_AUTH, { headers: { "Content-Type": "text/plain" } });
     if (url.pathname === "/admin/stats") {
       if (!(await adminOk(request, env))) return new Response("forbidden", { status: 403 });
