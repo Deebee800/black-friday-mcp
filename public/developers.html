@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Developers: Black Friday MCP endpoint, OAuth, tools, and limits</title>
+  <title>Developers: Black Friday MCP endpoint, OAuth, tools, limits</title>
   <meta content="Remote MCP server over Streamable HTTP with OAuth 2.1. Four read-only tools with full input schemas, response shape, limits, and the rules the server follows." name="description">
-  <meta content="Developers: Black Friday MCP endpoint, OAuth, tools, and limits" property="og:title">
+  <meta content="Developers: Black Friday MCP endpoint, OAuth, tools, limits" property="og:title">
   <meta content="Remote MCP server over Streamable HTTP with OAuth 2.1. Four read-only tools with full input schemas, response shape, limits, and the rules the server follows." property="og:description">
   <meta content="https://blackfridaymcp.com/brand/mark-512.png" property="og:image">
   <meta content="https://blackfridaymcp.com/brand/mark-512.png" name="twitter:image">
-  <meta content="Developers: Black Friday MCP endpoint, OAuth, tools, and limits" name="twitter:title">
+  <meta content="Developers: Black Friday MCP endpoint, OAuth, tools, limits" name="twitter:title">
   <meta content="Remote MCP server over Streamable HTTP with OAuth 2.1. Four read-only tools with full input schemas, response shape, limits, and the rules the server follows." name="twitter:description">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://blackfridaymcp.com/developers">
@@ -44,7 +44,7 @@
       <div class="wrap">
         <div class="eyebrow"><span class="eyebrow-dot"></span><span>Developers</span></div>
         <h1 class="page-title">Black Friday MCP for developers</h1>
-        <p class="section-sub-wide">A remote MCP server over Streamable HTTP with OAuth 2.1. No API key, nothing to install. Four read-only tools, US marketplace, prices in USD.</p>
+        <p class="section-sub-wide">A remote MCP server over Streamable HTTP with OAuth 2.1. No API key, nothing to install. Four read-only tools, US marketplace, prices in USD. The <a href="/amazon-mcp-server" class="prose-link">Amazon MCP server overview</a> explains in plain words what it does for shoppers.</p>
         <div class="urlbox urlbox-light">
           <div class="url-text js-url">https://blackfridaymcp.com/mcp</div>
           <a href="#" class="btn copy-btn js-copy">Copy</a>
@@ -60,7 +60,7 @@
             <div class="code-line">MCP 2026-07-28, stateless; older stateless clients supported</div>
             <div class="code-line">Auth: OAuth 2.1 bearer token, scope shop:read</div>
           </div>
-          <p class="prose-p">Unauthenticated requests get a 401 with a WWW-Authenticate challenge, so any compliant client discovers the flow on its own. Works with Claude, ChatGPT, Antigravity, Grok, Cursor, Codex, Claude Code, and any MCP SDK.</p>
+          <p class="prose-p">Unauthenticated requests get a 401 with a WWW-Authenticate challenge, so any compliant client discovers the flow on its own. Works with Claude, ChatGPT, Antigravity, Grok, Muse, Cursor, Codex, Claude Code, and any MCP SDK. In the Grok Bot desktop app, add the server as a custom connector of type Remote HTTPS. Claude Duet uses the connectors on your Claude account, so add the server in Claude. If Duet can&#x27;t reach it, use the Claude app.</p>
           <h2 class="prose-h2">Authorization</h2>
           <div class="prose-list">
             <div class="prose-li">
@@ -157,24 +157,31 @@
           </div>
           <p class="prose-p">Prices carry their fetch time inline. The disclosure block appears once per response. check_deal adds a one-line verdict. Links are Amazon&#x27;s own URLs, untouched.</p>
           <h2 class="prose-h2">Example response</h2>
-          <p class="prose-p">structuredContent from a real search_deals call, trimmed to one product:</p>
+          <p class="prose-p">structuredContent from a search_deals call, trimmed to one product:</p>
           <div class="code-block code-block-top">
             <div class="code-line">{</div>
-            <div class="code-line code-line-indent">&quot;query&quot;: &quot;noise cancelling headphones&quot;,</div>
-            <div class="code-line code-line-indent">&quot;max_price&quot;: 300,</div>
+            <div class="code-line code-line-indent">&quot;query&quot;: &quot;27 inch 4k monitor&quot;,</div>
+            <div class="code-line code-line-indent">&quot;max_price&quot;: 400,</div>
+            <div class="code-line code-line-indent">&quot;min_discount_percent&quot;: null,</div>
             <div class="code-line code-line-indent">&quot;count&quot;: 8,</div>
-            <div class="code-line code-line-indent">&quot;total_results&quot;: 306,</div>
+            <div class="code-line code-line-indent">&quot;total_results&quot;: 120,</div>
+            <div class="code-line code-line-indent">&quot;from_cache&quot;: false,</div>
+            <div class="code-line code-line-indent">&quot;stale&quot;: false,</div>
             <div class="code-line code-line-indent">&quot;products&quot;: [</div>
             <div class="code-line code-line-indent2">{</div>
-            <div class="code-line code-line-indent3">&quot;asin&quot;: &quot;B0C8PR4W22&quot;,</div>
-            <div class="code-line code-line-indent3">&quot;title&quot;: &quot;Beats Studio Pro Premium Wireless Over-Ear Headphones…&quot;,</div>
-            <div class="code-line code-line-indent3">&quot;brand&quot;: &quot;Beats&quot;,</div>
-            <div class="code-line code-line-indent3">&quot;price&quot;: { &quot;amount&quot;: 169.95, &quot;currency&quot;: &quot;USD&quot;, &quot;display&quot;: &quot;$169.95&quot;, &quot;as_of&quot;: &quot;2026-09-18T19:08:48.066Z&quot;, &quot;display_with_time&quot;: &quot;$169.95 (as of Sep 18 3:08 PM EDT)&quot; },</div>
-            <div class="code-line code-line-indent3">&quot;savings&quot;: { &quot;percent&quot;: 51, &quot;amount&quot;: 180.04, &quot;reference_type&quot;: &quot;LIST_PRICE&quot;, &quot;reference_label&quot;: &quot;List Price:&quot;, &quot;reference_price&quot;: &quot;$349.99&quot;, &quot;evidence_note&quot;: &quot;weak evidence: list prices often sit above the usual selling price&quot; },</div>
+            <div class="code-line code-line-indent3">&quot;asin&quot;: &quot;B0EXAMPLE01&quot;,</div>
+            <div class="code-line code-line-indent3">&quot;title&quot;: &quot;Example 27-inch 4K monitor&quot;,</div>
+            <div class="code-line code-line-indent3">&quot;brand&quot;: &quot;Example&quot;,</div>
+            <div class="code-line code-line-indent3">&quot;price&quot;: { &quot;amount&quot;: 199.99, &quot;currency&quot;: &quot;USD&quot;, &quot;display&quot;: &quot;$199.99&quot;, &quot;as_of&quot;: &quot;2026-11-22T19:15:00.000Z&quot;, &quot;display_with_time&quot;: &quot;$199.99 (as of Nov 22 2:15 PM EST)&quot; },</div>
+            <div class="code-line code-line-indent3">&quot;price_hidden_until_cart&quot;: false,</div>
+            <div class="code-line code-line-indent3">&quot;savings&quot;: { &quot;percent&quot;: 29, &quot;amount&quot;: 80, &quot;reference_type&quot;: &quot;LIST_PRICE&quot;, &quot;reference_label&quot;: &quot;List Price:&quot;, &quot;reference_price&quot;: &quot;$279.99&quot;, &quot;evidence_note&quot;: &quot;weak evidence: list prices often sit above the usual selling price&quot; },</div>
             <div class="code-line code-line-indent3">&quot;availability&quot;: &quot;IN_STOCK&quot;,</div>
-            <div class="code-line code-line-indent3">&quot;deal&quot;: { &quot;badge&quot;: &quot;Limited time deal&quot;, &quot;ends_at&quot;: &quot;2026-09-27T06:59:59Z&quot;, &quot;access&quot;: &quot;ALL&quot; },</div>
-            <div class="code-line code-line-indent3">&quot;image_url&quot;: &quot;https://m.media-amazon.com/images/I/41BH74ZyJpL._SL160_.jpg&quot;,</div>
-            <div class="code-line code-line-indent3">&quot;url&quot;: &quot;https://www.amazon.com/dp/B0C8PR4W22?tag=bfmcp-serv-20&amp;linkCode=osi&amp;th=1&amp;psc=1&quot;</div>
+            <div class="code-line code-line-indent3">&quot;availability_text&quot;: &quot;In stock&quot;,</div>
+            <div class="code-line code-line-indent3">&quot;deal&quot;: { &quot;badge&quot;: &quot;Black Friday Deal&quot;, &quot;ends_at&quot;: &quot;2026-12-01T07:59:59Z&quot;, &quot;access&quot;: &quot;ALL&quot; },</div>
+            <div class="code-line code-line-indent3">&quot;merchant&quot;: &quot;Amazon.com&quot;,</div>
+            <div class="code-line code-line-indent3">&quot;image_url&quot;: &quot;…&quot;,</div>
+            <div class="code-line code-line-indent3">&quot;url&quot;: &quot;https://www.amazon.com/dp/B0EXAMPLE01?tag=…&quot;,</div>
+            <div class="code-line code-line-indent3">&quot;stale_note&quot;: null</div>
             <div class="code-line code-line-indent2">}</div>
             <div class="code-line code-line-indent">],</div>
             <div class="code-line code-line-indent">&quot;hint&quot;: &quot;In your reply, give each product&#x27;s link exactly as shown above.&quot;,</div>
@@ -182,6 +189,7 @@
             <div class="code-line code-line-indent">&quot;market&quot;: &quot;Amazon.com (US), USD&quot;</div>
             <div class="code-line">}</div>
           </div>
+          <p class="prose-p prose-legal">The values above are illustrative and do not describe a real Amazon product.</p>
           <h2 class="prose-h2">Limits</h2>
           <div class="prose-list">
             <div class="prose-li">
