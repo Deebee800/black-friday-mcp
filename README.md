@@ -40,3 +40,6 @@ npm run test:e2e -- https://127.0.0.1:8787   # DCR → consent → PKCE token �
 npm run smoke                                # live Amazon token + a few lookups
 ```
 Runtime config (no redeploy): KV key `config` in `CACHE_KV`; keys and defaults in `src/config.ts`.
+
+## License
+MIT. See [LICENSE](LICENSE).
