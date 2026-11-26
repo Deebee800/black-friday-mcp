@@ -329,7 +329,7 @@ export class Gate extends DurableObject<Env> {
   }
 
   /** Seen-hashes are needed only for the current UTC day; daily totals are kept USAGE_KEEP_DAYS.
-   *  Lists only deletable keys (`end` is exclusive, so today's a: keys are never read), in pages, at most 20k per tick; leftovers go next tick. */
+   *  Lists only deletable keys (`end` is exclusive, so today's a: keys are never read), in pages, at most 20k per range per tick; leftovers go next tick. */
   private async sweepUsage(today: string) {
     const cutoff = utcDay(Date.parse(today) - USAGE_KEEP_DAYS * DAY_MS);
     for (const [start, end] of [["a:", `a:${today}`], ["s:", `s:${cutoff}`]] as const) {
